@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>愈图壁纸馆 | Atmospheric Wallpapers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { 
+            background-color: #050505; 
+            color: #e5e7eb; 
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+        .glass-panel:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.15);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #FF9A9E 0%, #FECFEF 99%, #FECFEF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        body.lang-en .zh { display: none !important; }
+        body.lang-zh .en { display: none !important; }
+    </style>
+</head>
+<body class="lang-zh min-h-screen flex items-center justify-center p-8 relative">
+    
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+        <div class="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-orange-600/10 blur-[120px]"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] rounded-full bg-blue-800/10 blur-[150px]"></div>
+    </div>
+
+    <div class="relative z-10 w-full max-w-[1440px] mx-auto flex flex-col gap-6">
+        
+        <div class="glass-panel p-6 flex flex-col md:flex-row items-center justify-between gap-6 shadow-lg">
+            <div class="flex items-center gap-5">
+                <img src="avatar.jpg" alt="Avatar" class="w-20 h-20 rounded-full object-cover border-2 border-white/10 shrink-0 bg-gray-800">
+                <div>
+                    <h1 class="text-3xl font-extrabold tracking-tight mb-2">愈图壁纸馆</h1>
+                    <p class="text-sm text-gray-400 font-light">
+                        <span class="text-gradient font-medium zh">氛围感</span><span class="text-gradient font-medium en">Atmospheric</span> 
+                        <span class="zh">壁纸收集册</span><span class="en">Wallpaper Collection</span>
+                    </p>
+                </div>
+            </div>
+            <p class="text-sm text-gray-400 max-w-2xl text-center md:text-left leading-relaxed">
+                <span class="zh">专注分享高质量、高分辨率、高级感的壁纸。目前全站开启限时粉丝福利，感谢每一位关注我们的朋友！</span>
+                <span class="en">High-quality atmospheric wallpapers. Currently free for followers. Thank you for your support!</span>
+            </p>
+            <div class="flex items-center gap-4 shrink-0">
+                <div class="flex items-center gap-2 text-sm font-medium text-gray-400 bg-white/5 px-5 py-2.5 rounded-full border border-white/10">
+                    <span class="w-2.5 h-2.5 rounded-full bg-green-500 animate-pulse"></span> 
+                    <span class="zh">全天候自动发货</span><span class="en">24h Auto-Delivery</span>
+                </div>
+                <button onclick="toggleLang()" class="bg-blue-600/20 hover:bg-blue-600/40 text-blue-300 border border-blue-500/30 transition px-5 py-2.5 rounded-full text-sm font-bold">
+                    <span class="zh">🌐 EN</span><span class="en">🌐 中文</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+            
+            <div class="glass-panel p-6 flex flex-col">
+                <h2 class="text-xl font-bold mb-5 flex items-center gap-2">
+                    <span class="bg-blue-500/20 text-blue-400 px-2.5 py-1 rounded-lg text-sm">01</span> 
+                    <span class="zh">获取指南</span><span class="en">Guide</span>
+                </h2>
+                <div class="bg-black/30 rounded-xl p-4 border border-white/5 mb-5">
+                    <div class="flex justify-between items-center text-sm text-gray-300 font-bold">
+                        <div class="flex flex-col items-center">
+                            <span class="text-2xl mb-1.5">🔍</span><span class="zh">选图</span><span class="en">Pick</span>
+                        </div>
+                        <div class="text-gray-600">➔</div>
+                        <div class="flex flex-col items-center">
+                            <span class="text-2xl mb-1.5">✉️</span><span class="zh">发邮件</span><span class="en">Email</span>
+                        </div>
+                        <div class="text-gray-600">➔</div>
+                        <div class="flex flex-col items-center">
+                            <span class="text-2xl mb-1.5">📬</span><span class="zh">秒回</span><span class="en">Get</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-[13px] text-gray-400 bg-white/5 p-4 rounded-xl border border-white/5 mb-4">
+                    <span class="zh">接收邮箱：</span><span class="en">Email:</span>
+                    <span class="text-white font-mono tracking-wider ml-1 text-base font-bold">1262942801@qq.com</span>
+                    <p class="mt-2 text-[13px] text-orange-400/80 font-bold">
+                        <span class="zh">※ 主题仅填1个编号 (如:249)</span>
+                        <span class="en">※ Subject: 1 ID only (e.g. 249)</span>
+                    </p>
+                </div>
+                <div class="mt-auto rounded-xl overflow-hidden border border-white/10 bg-white/5 shadow-inner">
+                    <div class="text-[13px] text-gray-400 p-2 text-center border-b border-white/5 bg-black/20 font-bold">
+                        <span class="zh">👇 邮件发送格式示范</span><span class="en">👇 Email Example</span>
+                    </div>
+                    <img src="邮件发送格式.jpg" alt="Example" class="w-full h-auto object-cover opacity-90">
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 flex flex-col">
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-2">📜 <span class="zh">站点规则</span><span class="en">Rules</span></h2>
+                <ul class="space-y-5 text-[15px] text-gray-300 flex-1">
+                    <li class="flex gap-3">
+                        <span class="text-green-400 mt-1 text-sm">●</span>
+                        <span class="leading-relaxed"><strong class="text-white zh">限时特惠：</strong><strong class="text-white en">Special Offer:</strong><br>
+                        <span class="zh">为了积累粉丝量，目前馆内所有往期壁纸均开启</span><span class="text-orange-400 font-black text-lg zh"> 免费获取 </span><span class="zh">模式！</span>
+                        <span class="en">To gain followers, all past wallpapers are now </span><span class="text-orange-400 font-black text-lg en"> FREE </span><span class="en">!</span></span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-pink-400 mt-1 text-sm">●</span>
+                        <span class="leading-relaxed"><strong class="text-white zh">取图条件：</strong><strong class="text-white en">Requirement:</strong><br>
+                        <span class="zh">请大家在小红书完成</span><span class="text-pink-400 font-black text-lg zh"> “三连+关注” </span><span class="zh">后，再发送邮件取图，谢谢大家的支持！！！</span>
+                        <span class="en">Please </span><span class="text-pink-400 font-black text-lg en"> Like & Follow </span><span class="en"> on Xiaohongshu before requesting. Thank you!!!</span></span>
+                    </li>
+                    <li class="flex gap-3">
+                        <span class="text-blue-400 mt-1 text-sm">●</span>
+                        <span class="leading-relaxed"><strong class="text-white zh">关于原图：</strong><strong class="text-white en">About Image:</strong><br>
+                        <span class="zh">发送邮件后系统会自动回复</span><span class="text-blue-400 font-bold zh"> 壁纸超清原图 </span><span class="zh">，等待30s左右即可收到邮件回复。</span>
+                        <span class="en">The system will auto-reply with </span><span class="text-blue-400 font-bold en"> Ultra-HD Wallpaper Images </span><span class="en"> in about 30 seconds.</span></span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="glass-panel p-6 flex flex-col">
+                <h2 class="text-xl font-bold mb-6 flex items-center gap-3">
+                    🎁 <span class="zh">福利与权益</span><span class="en">Benefits</span>
+                </h2>
+                <div class="space-y-6 flex-1">
+                    <div class="border-b border-white/10 pb-6">
+                        <div class="flex justify-between items-end mb-3">
+                            <span class="font-medium text-white text-base zh">粉丝专属福利</span>
+                            <span class="font-medium text-white text-base en">Follower Bonus</span>
+                            <span class="text-2xl font-black text-gradient">¥ 0.0</span>
+                        </div>
+                        <ul class="text-sm text-gray-400 space-y-3">
+                            <li>✓ <span class="zh text-orange-300 font-bold">限时开启：</span><span class="zh">全站往期壁纸无限次免费获取</span><span class="en text-orange-300 font-bold">Limited Time: </span><span class="en">Unlimited free access to all past wallpapers</span></li>
+                            <li>✓ <span class="zh text-orange-300 font-bold">实时更新：</span><span class="zh">第一时间获取最新的治愈系视觉大片</span><span class="en text-orange-300 font-bold">Real-time: </span><span class="en">Get the latest healing visuals instantly</span></li>
+                            <li>✓ <span class="zh text-orange-300 font-bold">自动发货：</span><span class="zh">24小时全天候响应，秒回原图</span><span class="en text-orange-300 font-bold">Auto-delivery: </span><span class="en">24h instant response with original images</span></li>
+                        </ul>
+                    </div>
+                    <div class="p-3 bg-white/5 rounded-xl border border-white/10">
+                        <p class="text-[13px] leading-relaxed text-gray-400">
+                            <span class="zh">目前处于粉丝积累期，暂不收取点数。您的每一份</span><span class="text-pink-400 font-bold zh">点赞和关注</span><span class="zh">都是我坚持创作的最大动力！</span>
+                            <span class="en">Points are temporarily not required. Your </span><span class="text-pink-400 font-bold en">likes and follows</span><span class="en"> are my biggest motivation!</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass-panel p-6 flex flex-col items-center justify-center text-center relative overflow-hidden">
+                <h2 class="text-xl font-bold mb-4 z-10"><span class="zh">支持与投喂</span><span class="en">Support</span></h2>
+                <div class="text-[14px] text-gray-300 mb-5 z-10 leading-relaxed px-2">
+                    <p class="mb-3">
+                        <span class="zh font-medium">UP主制作不易，每一张壁纸都是心血。</span>
+                        <span class="en font-medium">Creating high-quality wallpapers takes time and effort.</span>
+                    </p>
+                    <p class="mb-3">
+                        <span class="zh text-orange-400 font-black text-lg">如需投喂请扫码，</span>
+                        <span class="en text-orange-400 font-black text-lg">Scan the QR to support,</span><br>
+                        <span class="zh">再次谢谢大家对愈图壁纸馆的关注与喜欢！❤️</span>
+                        <span class="en">Thank you for your love and support! ❤️</span>
+                    </p>
+                </div>
+                <div class="shrink-0 w-40 h-40 rounded-2xl flex items-center justify-center overflow-hidden mb-4 shadow-xl border border-white/20 z-10 p-1 bg-white">
+                    <img src="qrcode.jpg" alt="QR" class="w-full h-full object-cover rounded-xl">
+                </div>
+                <p class="text-xs font-mono text-gray-500 z-10 uppercase tracking-widest opacity-50">Thanks for your support</p>
+            </div>
+        </div>
+
+        <div class="glass-panel p-8 flex flex-col mt-2">
+            <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-6">
+                <h2 class="text-2xl font-bold flex items-center gap-3">
+                    🖼️ <span class="zh">往期壁纸库</span><span class="en">Wallpaper Gallery</span>
+                </h2>
+                <div class="relative w-full md:w-96 z-20">
+                    <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-base">🔍</div>
+                    <input type="text" id="searchInput" onkeyup="searchImages()" class="bg-black/40 border border-white/10 text-white text-base rounded-full focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 block w-full pl-12 p-3 placeholder-gray-600 shadow-inner" placeholder="输入编号搜索 / Enter ID (e.g. 3)">
+                </div>
+            </div>
+
+            <div id="wallpaperGallery" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+            </div>
+        </div>
+
+    </div>
+
+    <script src="wallpapers.js"></script>
+    
+    <script>
+        function toggleLang() {
+            document.body.classList.toggle('lang-zh');
+            document.body.classList.toggle('lang-en');
+        }
+
+        function searchImages() {
+            let input = document.getElementById('searchInput').value.trim();
+            let items = document.getElementsByClassName('gallery-item');
+            
+            for (let i = 0; i < items.length; i++) {
+                let id = items[i].getAttribute('data-id');
+                if (input === "") {
+                    items[i].style.display = "block";
+                } else {
+                    if (id === input) {
+                        items[i].style.display = "block";
+                    } else {
+                        items[i].style.display = "none";
+                    }
+                }
+            }
+        }
+
+        function renderGallery() {
+            const gallery = document.getElementById('wallpaperGallery');
+            let htmlContent = '';
+
+            if (typeof wallpaperList !== 'undefined') {
+                let sortedList = wallpaperList.sort((a, b) => b - a);
+
+                sortedList.forEach(id => {
+                    htmlContent += `
+                    <div class="gallery-item flex flex-col group cursor-pointer" data-id="${id}">
+                        <div class="relative aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 bg-black/20 shadow-md">
+                            <img src="${id}.jpg" alt="Wallpaper ${id}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                        </div>
+                        <div class="mt-2 text-center">
+                            <span class="text-base font-mono text-gray-400 font-bold">ID: ${id}</span>
+                        </div>
+                    </div>
+                    `;
+                });
+                gallery.innerHTML = htmlContent;
+            } else {
+                gallery.innerHTML = '<p class="text-gray-500 text-sm">未能加载数据，请确认是否运行了 Python 并生成了 wallpapers.js</p>';
+            }
+        }
+
+        window.onload = renderGallery;
+    </script>
+</body>
+</html>
