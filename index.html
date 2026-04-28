@@ -102,7 +102,7 @@
                     <div class="text-[13px] text-gray-400 p-2 text-center border-b border-white/5 bg-black/20 font-bold">
                         <span class="zh">👇 邮件发送格式示范</span><span class="en">👇 Email Example</span>
                     </div>
-                    <img src="邮件发送格式.jpg?v=2" alt="Example" class="w-full h-auto object-cover opacity-90">
+                    <img src="邮件发送格式.jpg" alt="Example" class="w-full h-auto object-cover opacity-90">
                 </div>
             </div>
 
@@ -184,7 +184,7 @@
                 </h2>
                 <div class="relative w-full md:w-96 z-20">
                     <div class="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none text-base">🔍</div>
-                    <input type="text" id="searchInput" onkeyup="searchImages()" class="bg-black/40 border border-white/10 text-white text-base rounded-full focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 block w-full pl-12 p-3 placeholder-gray-600 shadow-inner" placeholder="输入编号搜索 / Enter ID (e.g. 3)">
+                    <input type="text" id="searchInput" onkeyup="searchImages()" class="bg-black/40 border border-white/10 text-white text-base rounded-full focus:ring-2 focus:ring-blue-500/30 focus:border-blue-500 block w-full pl-12 p-3 placeholder-gray-600 shadow-inner" placeholder="输入编号或标签搜索 / Enter ID or Tags (e.g. 3, 汽车)">
                 </div>
             </div>
 
@@ -203,15 +203,18 @@
         }
 
         function searchImages() {
-            let input = document.getElementById('searchInput').value.trim();
+            let input = document.getElementById('searchInput').value.trim().toLowerCase();
             let items = document.getElementsByClassName('gallery-item');
             
             for (let i = 0; i < items.length; i++) {
                 let id = items[i].getAttribute('data-id');
+                let tags = items[i].getAttribute('data-tags') || ""; // 🌟 抓取标签数据
+                
                 if (input === "") {
                     items[i].style.display = "block";
                 } else {
-                    if (id === input) {
+                    // 🌟 匹配升级：ID相等，或者标签里包含了这个字，都显示出来！
+                    if (id === input || tags.includes(input)) {
                         items[i].style.display = "block";
                     } else {
                         items[i].style.display = "none";
@@ -225,11 +228,20 @@
             let htmlContent = '';
 
             if (typeof wallpaperList !== 'undefined') {
-                let sortedList = wallpaperList.sort((a, b) => b - a);
+                // 🌟 超强兼容排序：不管你是旧版的 [1, 2] 还是新版的 [{id: 1, tags: "风景"}]，都能完美排序
+                let sortedList = wallpaperList.sort((a, b) => {
+                    let idA = typeof a === 'object' ? parseInt(a.id) : parseInt(a);
+                    let idB = typeof b === 'object' ? parseInt(b.id) : parseInt(b);
+                    return idB - idA;
+                });
 
-                sortedList.forEach(id => {
+                sortedList.forEach(item => {
+                    // 🌟 兼容读取：自动提取 id 和 tags
+                    let id = typeof item === 'object' ? item.id : item;
+                    let tags = typeof item === 'object' ? (item.tags || "") : "";
+
                     htmlContent += `
-                    <div class="gallery-item flex flex-col group cursor-pointer" data-id="${id}">
+                    <div class="gallery-item flex flex-col group cursor-pointer" data-id="${id}" data-tags="${tags}">
                         <div class="relative aspect-[3/4] rounded-2xl overflow-hidden border border-white/10 bg-black/20 shadow-md">
                             <img src="${id}.jpg" alt="Wallpaper ${id}" loading="lazy" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
                         </div>
